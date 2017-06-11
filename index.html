@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin:0;padding: 0}
+		.wrap{
+			font-size: 0;
+		}
+		span{
+			display: inline-block;
+			width: 48px;
+			height: 48px;
+		}
+		.main{
+			background: url('main.png') no-repeat 0 0 ;
+			background-size: 48px 48px;
+		}
+		.half{
+			background: url('half.png') no-repeat 0 0 ;
+			background-size: 48px 48px;
+		}
+		.gray{
+			background: url('gray.png') no-repeat 0 0 ;
+			background-size: 48px 48px;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		
+	</div>
+</body>
+<script type="text/javascript">
+	var wrap = document.getElementsByClassName('wrap')[0];
+	var num = 3.5;
+	var length = 5;
+	var arr = [];
+	var main = 'main';
+	var half = 'half';
+	var gray = 'gray';
+	//判断是否有半星，如果score有小数则有半星，否则没有半星
+	var score = Math.floor(num*2)/2;
+	//是否有小数
+	var hasDecimal = score % 1 !== 0;
+	//整星颗数
+	var integer = Math.floor(score);
+	for (var i = 0; i < integer; i++) {
+		arr.push(main)
+	}
+	if (hasDecimal) {
+		arr.push(half)
+	}
+	while(arr.length<length){
+		arr.push(gray)
+	}
+
+	for (var i = 0; i < arr.length; i++) {
+		var span = document.createElement('span');
+		span.className = arr[i]
+		console.log(span)
+		wrap.appendChild(span)
+	}
+</script>
+</html>
